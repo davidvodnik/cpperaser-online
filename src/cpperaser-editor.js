@@ -6,14 +6,20 @@ export class DuckCodeEditor extends LitElement {
 
   render() {
     return html`
-      <lit-code linenumbers code="struct Drawable {\n  void draw();\n};" language="cpp"></lit-code>
+      <div class="row">
+        <lit-code linenumbers code="struct Drawable {\n  void draw();\n};" language="cpp"></lit-code>
+        <lit-code linenumbers language="cpp"></lit-code>
+      </div>
     `
   }
 
   static get styles() {
     return css`
-      :host {
-        width: 100%;
+      .row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 1em;
+        margin: 1em;
       }
 
       lit-code {
