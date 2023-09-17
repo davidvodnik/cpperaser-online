@@ -40,8 +40,9 @@ export class DuckCodeEditor extends LitElement {
 
   render() {
     return html`
-      <div class="editor-group">
+      <div class="editor-grid">
         <lit-code
+          class="left"
           linenumbers
           code="struct Drawable {
   void draw();
@@ -49,25 +50,41 @@ export class DuckCodeEditor extends LitElement {
           @update=${({ detail: code }) => this.updateText(code)}
           language="cpp"
         ></lit-code>
-        <lit-code linenumbers language="cpp" code="${this.code}"></lit-code>
+        <lit-code linenumbers code="${this.code}" language="cpp"></lit-code>
       </div>
     `;
   }
 
   static get styles() {
     return css`
-      .editor-group {
+      .editor-grid {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        column-gap: 1em;
-        margin: 1em;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 1rem;
       }
 
       lit-code {
-        border-radius: 8px;
-        border: 2px solid #eee;
-        height: 800px;
         min-width: 100%;
+        width: 100%;
+        height: 600px;
+        box-sizing: border-box;
+        border-radius: 2px;
+        border: 2px solid #eee;
+      }
+
+      .left {
+        height: 120px;
+      }
+
+      @media (min-width: 700px) {
+        .editor-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .left {
+          height: 600px;
+        }
       }
     `;
   }
