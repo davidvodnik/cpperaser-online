@@ -4,17 +4,11 @@ import "./prism.js";
 import "lit-code";
 
 export class DuckCodeEditor extends LitElement {
-  static get properties() {
-    return {
-      code: { type: String },
-    };
-  }
-
   constructor() {
     super();
     Module().then((m) => {
       this.cpperaser = m;
-      this.updateText(this.code);
+      this.updateText();
     });
   }
 
@@ -31,10 +25,15 @@ export class DuckCodeEditor extends LitElement {
     return outputString;
   }
 
-  updateText(code) {
-    this.code = code;
+  updateText() {
     if (this.cpperaser) {
-      this.code = this.generate_interface(code);
+      this.shadowRoot
+        .querySelector(".right")
+        .setCode(
+          this.generate_interface(
+            this.shadowRoot.querySelector(".left").getCode(),
+          ),
+        );
     }
   }
 
@@ -47,10 +46,14 @@ export class DuckCodeEditor extends LitElement {
           code="struct Drawable {
   void draw();
 };"
-          @update=${({ detail: code }) => this.updateText(code)}
           language="cpp"
+          @update=${this.updateText}
         ></lit-code>
-        <lit-code linenumbers code="${this.code}" language="cpp"></lit-code>
+        <lit-code
+          class="right"
+          language="cpp"
+          @update=${this.updateText}
+        ></lit-code>
       </div>
     `;
   }
