@@ -1,39 +1,39 @@
-import { LitElement, css, html } from "lit";
-import Module from "../cpperaser/build/src/cpperaser.js";
-import "./prism.js";
-import "lit-code";
+import { LitElement, css, html } from 'lit'
+import Module from '../cpperaser/build/src/cpperaser.js'
+import './prism.js'
+import 'lit-code'
 
 export class DuckCodeEditor extends LitElement {
   constructor() {
-    super();
+    super()
     Module().then((m) => {
-      this.cpperaser = m;
-      this.updateText();
-    });
+      this.cpperaser = m
+      this.updateText()
+    })
   }
 
   generate_interface(name) {
-    const output = this.cpperaser._malloc(65536);
+    const output = this.cpperaser._malloc(65536)
     const isValid = this.cpperaser.ccall(
-      "parse_interface",
-      "number",
-      ["string", "number"],
-      [name, output],
-    );
-    var outputString = this.cpperaser.UTF8ToString(output);
-    this.cpperaser._free(output);
-    return outputString;
+      'parse_interface',
+      'number',
+      ['string', 'number'],
+      [name, output]
+    )
+    var outputString = this.cpperaser.UTF8ToString(output)
+    this.cpperaser._free(output)
+    return outputString
   }
 
   updateText() {
     if (this.cpperaser) {
       this.shadowRoot
-        .querySelector(".right")
+        .querySelector('.right')
         .setCode(
           this.generate_interface(
-            this.shadowRoot.querySelector(".left").getCode(),
-          ),
-        );
+            this.shadowRoot.querySelector('.left').getCode()
+          )
+        )
     }
   }
 
@@ -49,12 +49,9 @@ export class DuckCodeEditor extends LitElement {
           language="cpp"
           @update=${this.updateText}
         ></lit-code>
-        <lit-code
-          class="right"
-          language="cpp"
-        ></lit-code>
+        <lit-code class="right" language="cpp"></lit-code>
       </div>
-    `;
+    `
   }
 
   static get styles() {
@@ -88,8 +85,8 @@ export class DuckCodeEditor extends LitElement {
           height: 600px;
         }
       }
-    `;
+    `
   }
 }
 
-window.customElements.define("cpperaser-editor", DuckCodeEditor);
+window.customElements.define('cpperaser-editor', DuckCodeEditor)

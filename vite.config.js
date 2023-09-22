@@ -1,4 +1,4 @@
-import { defineConfig, searchForWorkspaceRoot } from "vite";
+import { defineConfig, searchForWorkspaceRoot } from 'vite'
 
 export default defineConfig({
   server: {
@@ -7,8 +7,8 @@ export default defineConfig({
         // search up for workspace root
         searchForWorkspaceRoot(process.cwd()),
         // your custom rules
-        "../build/",
+        '../build/',
       ],
     },
   },
-});
+})
