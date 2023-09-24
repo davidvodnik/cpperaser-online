@@ -26,3 +26,8 @@ footer p {
   max-width: 30%;
   border-top: 1px solid #eee;
 }
+
+footer a {
+  color: blue;
+  text-decoration: none;
+}
