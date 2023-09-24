@@ -4,11 +4,17 @@ import './prism.js'
 import 'lit-code'
 
 export class DuckCodeEditor extends LitElement {
+  static get properties() {
+    return {
+      code: { type: String },
+    }
+  }
+
   constructor() {
     super()
     Module().then((m) => {
       this.cpperaser = m
-      this.updateText()
+      this.updateText(this.shadowRoot.querySelector('.left').getCode())
     })
   }
 
@@ -25,15 +31,9 @@ export class DuckCodeEditor extends LitElement {
     return outputString
   }
 
-  updateText() {
+  updateText(code) {
     if (this.cpperaser) {
-      this.shadowRoot
-        .querySelector('.right')
-        .setCode(
-          this.generate_interface(
-            this.shadowRoot.querySelector('.left').getCode()
-          )
-        )
+      this.code = this.generate_interface(code)
     }
   }
 
@@ -47,9 +47,14 @@ export class DuckCodeEditor extends LitElement {
   void draw();
 };"
           language="cpp"
-          @update=${this.updateText}
+          @update=${({ detail: code }) => this.updateText(code)}
         ></lit-code>
-        <lit-code linenumbers class="right" language="cpp"></lit-code>
+        <lit-code
+          code=${this.code}
+          linenumbers
+          class="right"
+          language="cpp"
+        ></lit-code>
       </div>
     `
   }
