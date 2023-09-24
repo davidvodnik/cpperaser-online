@@ -49,7 +49,7 @@ export class DuckCodeEditor extends LitElement {
           language="cpp"
           @update=${this.updateText}
         ></lit-code>
-        <lit-code class="right" language="cpp"></lit-code>
+        <lit-code linenumbers class="right" language="cpp"></lit-code>
       </div>
     `
   }
