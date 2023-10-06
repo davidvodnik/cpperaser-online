@@ -27,21 +27,25 @@ export class DuckCodeEditor extends LitElement {
   render() {
     return html`
       <div class="editor-grid">
-        <lit-code
-          class="left"
-          linenumbers
-          code="struct Drawable {
+        <div class="editor-container">
+          <lit-code
+            class="left"
+            linenumbers
+            code="struct Drawable {
   void draw();
 };"
-          language="cpp"
-          @update=${({ detail: code }) => this.updateText(code)}
-        ></lit-code>
-        <lit-code
-          code=${this.code}
-          linenumbers
-          class="right"
-          language="cpp"
-        ></lit-code>
+            language="cpp"
+            @update=${({ detail: code }) => this.updateText(code)}
+          ></lit-code>
+        </div>
+        <div class="editor-container">
+          <lit-code
+            code=${this.code}
+            linenumbers
+            class="right"
+            language="cpp"
+          ></lit-code>
+        </div>
       </div>
     `
   }
@@ -55,13 +59,17 @@ export class DuckCodeEditor extends LitElement {
         padding: 1rem;
       }
 
-      lit-code {
+      .editor-container {
         min-width: 100%;
         width: 100%;
+        border-radius: 8px;
+        border: 2px solid #eee;
+      }
+
+      lit-code {
         height: 600px;
         box-sizing: border-box;
-        border-radius: 2px;
-        border: 2px solid #eee;
+        border-radius: 6px;
       }
 
       .left {
