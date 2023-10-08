@@ -18,22 +18,9 @@ export class DuckCodeEditor extends LitElement {
     })
   }
 
-  generate_interface(name) {
-    const output = this.cpperaser._malloc(65536)
-    const isValid = this.cpperaser.ccall(
-      'parse_interface',
-      'number',
-      ['string', 'number'],
-      [name, output]
-    )
-    var outputString = this.cpperaser.UTF8ToString(output)
-    this.cpperaser._free(output)
-    return outputString
-  }
-
   updateText(code) {
     if (this.cpperaser) {
-      this.code = this.generate_interface(code)
+      this.code = this.cpperaser.generate_interface(code)
     }
   }
 
