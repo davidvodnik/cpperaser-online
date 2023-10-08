@@ -1,0 +1,3 @@
+[submodule "cpperaser"]
+	path = cpperaser
+	url = git@github.com:davidvodnik/cpperaser.git
