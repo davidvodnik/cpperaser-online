@@ -31,7 +31,7 @@ window.check_tab = function check_tab(element, event) {
     let before_tab = code.slice(0, element.selectionStart) // text before tab
     let after_tab = code.slice(element.selectionEnd, element.value.length) // text after tab
     let cursor_pos = element.selectionEnd + 1 // where cursor moves after tab - moving forward by 1 char to after tab
-    element.value = before_tab + '\t' + after_tab // add tab char
+    element.value = before_tab + '  ' + after_tab // add spaces
     // move cursor
     element.selectionStart = cursor_pos
     element.selectionEnd = cursor_pos
@@ -39,6 +39,8 @@ window.check_tab = function check_tab(element, event) {
   }
 }
 
-var initial = 'struct Drawable {\n\tvoid draw();\n};'
+var initial = 'struct Drawable {\n  void draw();\n};'
+document.querySelector('#editing').value = 'struct Drawable {'
+document.querySelector('#editing').value += '\n  void draw();'
+document.querySelector('#editing').value += '\n};'
 update(initial)
-document.querySelector('#editing').value = initial
