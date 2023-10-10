@@ -69,6 +69,13 @@ header label {
   caret-color: black; /* Or choose your favorite color */
 }
 
+/* Can be scrolled */
+#editing,
+#highlighting {
+  overflow: auto;
+  white-space: nowrap; /* Allows textarea to scroll horizontally */
+}
+
 /* No resize on textarea */
 #editing {
   resize: none;
