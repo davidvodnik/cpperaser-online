@@ -87,7 +87,7 @@ header label {
 #highlighting,
 #result {
   overflow: auto;
-  white-space: nowrap; /* Allows textarea to scroll horizontally */
+  white-space: pre; /* Allows textarea to scroll horizontally */
 }
 
 /* No resize on textarea */

@@ -53,9 +53,7 @@ window.check_tab = function check_tab(element, event) {
 }
 
 var initial = 'struct Drawable {\n  void draw();\n};'
-document.querySelector('#editing').value = 'struct Drawable {'
-document.querySelector('#editing').value += '\n  void draw();'
-document.querySelector('#editing').value += '\n};'
+document.querySelector('#editing').value = initial
 update(initial)
 
 var cpperaser = null
