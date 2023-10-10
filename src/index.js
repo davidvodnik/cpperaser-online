@@ -1,4 +1,5 @@
 import './prism.js'
+import Module from '../cpperaser/build/src/cpperaser.js'
 
 window.update = function update(text) {
   let result_element = document.querySelector('#highlighting-content')
@@ -7,6 +8,18 @@ window.update = function update(text) {
     // If the last character is a newline character
     text += ' ' // Add a placeholder space character to the final line
   }
+
+  if (cpperaser != null) {
+    let code = cpperaser.generate_interface(text)
+    let output_element = document.querySelector('#result code')
+    // Update code
+    output_element.innerHTML = code
+      .replace(new RegExp('&', 'g'), '&')
+      .replace(new RegExp('<', 'g'), '<')
+    // Syntax Highlight
+    Prism.highlightElement(output_element)
+  }
+
   // Update code
   result_element.innerHTML = text
     .replace(new RegExp('&', 'g'), '&')
@@ -44,3 +57,10 @@ document.querySelector('#editing').value = 'struct Drawable {'
 document.querySelector('#editing').value += '\n  void draw();'
 document.querySelector('#editing').value += '\n};'
 update(initial)
+
+var cpperaser = null
+
+Module().then((m) => {
+  cpperaser = m
+  update(initial)
+})
