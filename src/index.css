@@ -18,7 +18,7 @@ header label {
 
 #code {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   grid-gap: 16px;
   margin: 16px;
 }
@@ -28,7 +28,26 @@ header label {
   position: relative;
   margin: 0px;
   min-width: 100%;
+}
+
+#output {
   min-height: 600px;
+}
+
+#input {
+  min-height: 120px;
+}
+
+@media (min-width: 700px) {
+  #code {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #input,
+  #output {
+    min-width: 100%;
+    min-height: 600px;
+  }
 }
 
 #editing,
