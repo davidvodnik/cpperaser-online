@@ -13,24 +13,30 @@
   <body>
     <header><label>CppEraser</label></header>
     <section id="code">
-      <section id="input">
-        <textarea
-          id="editing"
-          spellcheck="false"
-          oninput="update(this.value); sync_scroll(this);"
-          onscroll="sync_scroll(this);"
-          onkeydown="check_tab(this, event);"
-        ></textarea>
-        <pre
-          id="highlighting"
-          aria-hidden="true"
-        ><code class="language-cpp" id="highlighting-content"></code></pre>
+      <section>
+        <h2>Input interface</h2>
+        <div id="input-code">
+          <textarea
+            id="editing"
+            spellcheck="false"
+            oninput="update(this.value); sync_scroll(this);"
+            onscroll="sync_scroll(this);"
+            onkeydown="check_tab(this, event);"
+          ></textarea>
+          <pre
+            id="highlighting"
+            aria-hidden="true"
+          ><code class="language-cpp" id="highlighting-content"></code></pre>
+        </div>
       </section>
-      <section id="output">
-        <pre
-          id="result"
-          aria-hidden="true"
-        ><code class="language-cpp"></code></pre>
+      <section>
+        <h2>Result</h2>
+        <div id="output-code">
+          <pre
+            id="result"
+            aria-hidden="true"
+          ><code class="language-cpp"></code></pre>
+        </div>
       </section>
     </section>
     <footer class="footer">

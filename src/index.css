@@ -23,18 +23,23 @@ header label {
   margin: 16px;
 }
 
-#input,
-#output {
-  position: relative;
-  margin: 0px;
-  min-width: 100%;
+h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 8px;
+  display: inline-block;
 }
 
-#output {
+#input-code,
+#output-code {
+  position: relative;
+}
+
+#output-code {
   min-height: 600px;
 }
 
-#input {
+#input-code {
   min-height: 120px;
 }
 
@@ -43,8 +48,8 @@ header label {
     grid-template-columns: 1fr 1fr;
   }
 
-  #input,
-  #output {
+  #input-code,
+  #output-code {
     min-width: 100%;
     min-height: 600px;
   }
@@ -75,7 +80,8 @@ header label {
 }
 
 #editing,
-#highlighting {
+#highlighting,
+#result {
   position: absolute;
   top: 0;
   left: 0;
