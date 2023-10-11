@@ -79,7 +79,7 @@ header label {
 #editing {
   color: transparent;
   background: transparent;
-  caret-color: black; /* Or choose your favorite color */
+  caret-color: white; /* Or choose your favorite color */
 }
 
 /* Can be scrolled */
