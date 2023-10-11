@@ -121,18 +121,26 @@ h2 {
   resize: none;
 }
 
-footer {
+#about h2 {
+  margin: 0px;
+  padding: 16px;
+  display: block;
+  background-color: #2d2d2d;
+  color: #fff;
   text-align: center;
 }
 
-footer p {
-  display: inline-block;
-  padding: 20px;
-  max-width: 30%;
-  border-top: 1px solid #eee;
+#about p {
+  text-align: center;
 }
 
-footer a {
+#about p code {
+  padding: 4px;
+  border-radius: 8px;
+  background-color: #f0f0f0;
+}
+
+#about a {
   color: blue;
   text-decoration: none;
 }
