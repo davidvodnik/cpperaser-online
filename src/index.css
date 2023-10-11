@@ -3,13 +3,13 @@ body {
 }
 
 header {
-  background: #222;
+  background: #2d2d2d;
   height: 80px;
   width: 100%;
 }
 
 header label {
-  color: white;
+  color: #ccc;
   font-size: 35px;
   line-height: 80px;
   padding: 0 50px;
