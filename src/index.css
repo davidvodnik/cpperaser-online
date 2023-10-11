@@ -8,10 +8,11 @@ header {
   width: 100%;
 }
 
-header label {
+header h1 {
   color: #ccc;
   font-size: 35px;
   line-height: 80px;
+  margin: 0px;
   padding: 0 50px;
   font-weight: bold;
 }
