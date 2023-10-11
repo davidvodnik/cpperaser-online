@@ -14,16 +14,16 @@ window.update = function update(text) {
     let output_element = document.querySelector('#result code')
     // Update code
     output_element.innerHTML = code
-      .replace(new RegExp('&', 'g'), '&')
-      .replace(new RegExp('<', 'g'), '<')
+      .replace(new RegExp('&', 'g'), '&amp')
+      .replace(new RegExp('<', 'g'), '&lt')
     // Syntax Highlight
     Prism.highlightElement(output_element)
   }
 
   // Update code
   result_element.innerHTML = text
-    .replace(new RegExp('&', 'g'), '&')
-    .replace(new RegExp('<', 'g'), '<')
+    .replace(new RegExp('&', 'g'), '&amp')
+    .replace(new RegExp('<', 'g'), '&lt')
   // Syntax Highlight
   Prism.highlightElement(result_element)
 }
