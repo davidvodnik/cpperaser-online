@@ -19,7 +19,7 @@
           <textarea
             id="editing"
             spellcheck="false"
-            oninput="update(this.value); sync_scroll(this);"
+            oninput="update(); sync_scroll(this);"
             onscroll="sync_scroll(this);"
             onkeydown="check_tab(this, event);"
           ></textarea>
@@ -38,6 +38,15 @@
           ><code class="language-cpp"></code></pre>
         </div>
       </section>
+    </section>
+    <section id="config">
+      <input
+        type="checkbox"
+        id="copyable"
+        checked="checked"
+        onclick="update()"
+      />
+      <label for="copyable">Copyable</label>
     </section>
     <section id="about">
       <h2>About</h2>

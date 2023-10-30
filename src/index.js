@@ -1,7 +1,9 @@
 import './prism.js'
 import Module from '../cpperaser/build/src/cpperaser.js'
 
-window.update = function update(text) {
+window.update = function update() {
+  let text = document.querySelector('#editing').value
+  let copyable = document.querySelector('#copyable').checked
   let result_element = document.querySelector('#highlighting-content')
   // Handle final newlines (see article)
   if (text[text.length - 1] == '\n') {
@@ -10,7 +12,7 @@ window.update = function update(text) {
   }
 
   if (cpperaser != null) {
-    let code = cpperaser.generate_interface(text)
+    let code = cpperaser.generate_interface(text, copyable)
     let output_element = document.querySelector('#result code')
     // Update code
     output_element.innerHTML = code
